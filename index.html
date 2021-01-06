@@ -1,77 +1,53 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="TestingMapStyle.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-   crossorigin=""/>
-   
-<style>
-#leafmap { height: 180px; }
-</style>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript">
-	
-</script>
-<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
-<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-   crossorigin=""></script>
-</head>
-<body class="slds-scope">
- <h3 style="text-align: center;margin-bottom: 30px;margin-top: 20px;display: block;">VirusIQ Lab Locations Prototype</h3>
-
-<!-- <button onclick="myFunction()">Load Map</button> -->
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/jszip.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/xlsx.js"></script>
-<script async defer 
-	src= "https://maps.googleapis.com/maps/api/js?key=AIzaSyCmsZo6Hn04RnZeMhM-mSfhfPUZNzsR0NE">
-//"https://maps.googleapis.com/maps/api/js">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="TestingMapStyle.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+	   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+	   crossorigin=""/>
+	   
+	<style>
+	#leafmap { height: 400px; width:500px}
+	</style>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript">
+		
 	</script>
-<script type="text/javascript">
-$(document).ready(function() {
-    $('#services').select2().on('change',listQ);
-});
-</script>
-<script type="text/javascript">
-$(document).ready(function() {
-    $('#TestTypes').select2().on('change',listQ);
-});
-</script>
-<script type="text/javascript">
-$(document).ready(function() {
-    $('#ContractingEntities').select2().on('change',listQ);
-});
-</script>
-<script type="text/javascript">
-$(document).ready(function() {
-    $('#Payors').select2().on('change',listQ);
-});
-</script>
-<script type="text/javascript" src="map_functions.js"> </script>
-	 
+	<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+	<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+	<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+	   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+	   crossorigin=""></script>
+   
+</head>
+
+
+<body class="slds-scope">
+	
+	<h3 style="text-align: center;margin-bottom: 30px;margin-top: 20px;display: block;">VirusIQ Lab Locations Prototype</h3>
+
+
 	<div class="list-header">
 		<!-- <div class="wpgmp_before_listing">Map Locations</div>
 		<div class="wpgmp_search_form">
 			<input type="text" rel =24 data-input="wpgmp-search-text" class="wpgmp_search_input " placeholder="Enter address or latitude or longitude or title or city or state or country or postal code here..."></div> -->
 		<form enctype="multipart/form-data">
-    <div id= "inner_div">
-      
-    <input id="upload" type=file  name="files[]" class="form-control-file">
-    <!-- <div class='float-column'> -->
-    <br/>
-      <!-- <button class='btnRegNewLab' onclick="getElementById('demo').innerHTML=Date()">Register New Lab</button> -->
-    <!-- </div> -->
-</div>
-</form>
+			<div id= "inner_div">
+			  
+				<input id="upload" type=file  name="files[]" class="form-control-file">
+				<!-- <div class='float-column'> -->
+				<br/>
+				  <!-- <button class='btnRegNewLab' onclick="getElementById('demo').innerHTML=Date()">Register New Lab</button> -->
+				<!-- </div> -->
+			</div>
+		</form>
 
-    <div class ="float-column">
+		<div class ="float-column">
 			<strong style="cursor:default;">Testing Services</strong>
 			<div>
 				<select id ="services" style="width: 200px;" tabindex="-1" class = "select2-hidden-accessible" aria-hidden = "true">
@@ -128,41 +104,141 @@ $(document).ready(function() {
   				</select>
   			</div>
   		</div>
-      <a class="btn btn-primary mb-2" href="https://virusiq.health/diagnostics-vendors" role="button" target="_blank">Register New Lab</a>
-  </div>
+		<a class="btn btn-primary mb-2" href="https://virusiq.health/diagnostics-vendors" role="button" target="_blank">Register New Lab</a>
+	</div>
+	
+	<div class="container" >
+		
+		<br/>
+	
+		<div class="row">
+		
+			<div class="col-md-2"></div>
+			<div class="col-md-8">
+				<div class="row">
+					<form class="form-inline col" >
+					  <input class="form-control col-md-10" type="search" placeholder="Search" aria-label="Search">
+					  <button class="btn btn-outline-success col-md-2" type="submit">Search</button>
+					</form>
+				</div>
+			</div>
+			
+		
+		</div>
+		
+		<br/>
+	
+		<div class="row" >
+		
+			<div class="col-md-2"></div>
+			
+			<div class="col-md-4 bg-warning">
+				<br/>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="card">
+						  <div class="card-body">
+							<h5 class="card-title">US Biotek</h5>
+							<p class="card-text">COVID-19 Testing Kit : Contact</p>
+							<a href="#" class="btn btn-primary">Order Here</a>
+						  </div>
+						</div>
+						
+					</div>
+				</div>
+				<br/>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="card">
+						  <div class="card-body">
+							<h5 class="card-title">US Biotek</h5>
+							<p class="card-text">COVID-19 Testing Kit : Contact</p>
+							<a href="#" class="btn btn-primary">Order Here</a>
+						  </div>
+						</div>
+						
+					</div>
+				</div>
+				<br/>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="card">
+						  <div class="card-body">
+							<h5 class="card-title">US Biotek</h5>
+							<p class="card-text">COVID-19 Testing Kit : Contact</p>
+							<a href="#" class="btn btn-primary">Order Here</a>
+						  </div>
+						</div>
+						
+					</div>
+				</div>
+				
+			
+			</div>
+			
+			<div class="col-md=4" style="padding:5px;">
+			
+				<div id="leafmap"></div>
+			
+			</div>
+		
+		</div>
+	
+	
+	</div>
+	
 	<div id="map"></div>
 
-	<div id="leafmap"></div>
+	
 
-  <script>
-        document.getElementById('upload').addEventListener('change', fileReader, false);
+	
+	<!-- <button onclick="myFunction()">Load Map</button> -->
 
-    </script>
-
-<script type="text/javascript">
-	function listQ(){
-  	//window.alert(document.getElementById("ContractingEntities").value);
-  	load_locations();
-  }
-  // document.getElementById("services").addEventListener("change",listQ);
-  document.getElementById('services').value = 'ALL';
-  document.getElementById('TestTypes').value = 'ALL';
-  document.getElementById('ContractingEntities').value ='ALL';
-  document.getElementById('Payors').value ='ALL';
-  
-  
-  var map = L.map('leafmap').setView([51.505, -0.09], 13);
-
-	L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-		attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-	}).addTo(map);
-
-	L.marker([51.5, -0.09]).addTo(map)
-		.bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
-		.openPopup();
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/jszip.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/xlsx.js"></script>
+	<script async defer src= "https://maps.googleapis.com/maps/api/js?key=AIzaSyCmsZo6Hn04RnZeMhM-mSfhfPUZNzsR0NE"></script>
 		
+	
+	<script type="text/javascript" src="map_functions.js"> </script>
+	
+	<script  type="text/javascript" type="text/javascript">
+		$(document).ready(function() {
+			$('#services').select2().on('change',listQ);
+			$('#TestTypes').select2().on('change',listQ);
+			$('#ContractingEntities').select2().on('change',listQ);
+			$('#Payors').select2().on('change',listQ);
+		});
+        $('#upload').on('change', fileReader, false);
+		function listQ(){
+			//window.alert(document.getElementById("ContractingEntities").value);
+			load_locations();
+	  }
+	  // document.getElementById("services").addEventListener("change",listQ);
+	  document.getElementById('services').value = 'ALL';
+	  document.getElementById('TestTypes').value = 'ALL';
+	  document.getElementById('ContractingEntities').value ='ALL';
+	  document.getElementById('Payors').value ='ALL';
+		  
+		  
+		  //vi.map.initialize();
+			var map = L.map('leafmap').setView([51.505, -0.09], 13);
 
-</script>
+			L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+				attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+			}).addTo(map);
+
+			L.marker([51.5, -0.09]).addTo(map)
+				.bindPopup('London')
+				.openPopup();
+			L.marker([52.5, -1]).addTo(map)
+				.bindPopup('London')
+				.openPopup();
+			L.marker([50.5, 1]).addTo(map)
+				.bindPopup('London')
+				.openPopup();
+			
+
+	</script>
 
 
 
