@@ -1,5 +1,6 @@
 var locations = [];
 var final_arr = [];
+var dynamicfunc=[];
 
 function fileReader(oEvent) {
     var oFile = oEvent.target.files[0];
