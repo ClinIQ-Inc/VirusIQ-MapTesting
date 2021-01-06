@@ -1,6 +1,11 @@
 var locations = [];
 var final_arr = [];
 
+
+
+
+
+
 function fileReader(oEvent) {
     var oFile = oEvent.target.files[0];
     var sFilename = oFile.name;
