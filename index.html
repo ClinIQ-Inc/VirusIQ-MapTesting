@@ -31,19 +31,13 @@
 	
 	<h3 style="text-align: center;margin-bottom: 30px;margin-top: 20px;display: block;">VirusIQ Lab Locations Prototype</h3>
 
-
+	<!--
 	<div class="list-header">
-		<!-- <div class="wpgmp_before_listing">Map Locations</div>
-		<div class="wpgmp_search_form">
-			<input type="text" rel =24 data-input="wpgmp-search-text" class="wpgmp_search_input " placeholder="Enter address or latitude or longitude or title or city or state or country or postal code here..."></div> -->
 		<form enctype="multipart/form-data">
 			<div id= "inner_div">
 			  
 				<input id="upload" type=file  name="files[]" class="form-control-file">
-				<!-- <div class='float-column'> -->
 				<br/>
-				  <!-- <button class='btnRegNewLab' onclick="getElementById('demo').innerHTML=Date()">Register New Lab</button> -->
-				<!-- </div> -->
 			</div>
 		</form>
 
@@ -105,7 +99,7 @@
   			</div>
   		</div>
 		<a class="btn btn-primary mb-2" href="https://virusiq.health/diagnostics-vendors" role="button" target="_blank">Register New Lab</a>
-	</div>
+	</div>-->
 	
 	<!--<div style="width:400px; height:400px;">
 	
@@ -119,8 +113,8 @@
 	
 		<div class="row">
 		
-			<div class="col-md-2"></div>
-			<div class="col-md-8">
+			<div class="col-md-1"></div>
+			<div class="col-md-10">
 				<div class="row">
 					<form class="form-inline col" >
 					  <input class="form-control col-md-10" type="search" placeholder="Search" aria-label="Search">
@@ -136,11 +130,11 @@
 		
 		<br/>
 	
-		<div class="row" >
+		<div class="row" style="padding:5px;" >
 		
 			<div class="col-md-1"></div>
 			
-			<div class="col-md-5 bg-warning">
+			<div class="col-md-5 bg-warning" style="padding:10px;">
 				<br/>
 				<div class="row">
 					<div class="col-md-12">
@@ -192,10 +186,11 @@
 		
 		</div>
 	
-	
+		
+		
 	</div>
 	
-	<div id="map"></div>
+	<!--<div id="map"></div>-->
 
 	
 
@@ -211,21 +206,22 @@
 	
 	<script  type="text/javascript" type="text/javascript">
 		$(document).ready(function() {
-			$('#services').select2().on('change',listQ);
+			/**$('#services').select2().on('change',listQ);
 			$('#TestTypes').select2().on('change',listQ);
 			$('#ContractingEntities').select2().on('change',listQ);
 			$('#Payors').select2().on('change',listQ);
+			document.getElementById('services').value = 'ALL';
+			  document.getElementById('TestTypes').value = 'ALL';
+			  document.getElementById('ContractingEntities').value ='ALL';
+			  document.getElementById('Payors').value ='ALL';**/
 		});
         $('#upload').on('change', fileReader, false);
 		function listQ(){
 			//window.alert(document.getElementById("ContractingEntities").value);
 			load_locations();
-	  }
+		}
 	  // document.getElementById("services").addEventListener("change",listQ);
-	  document.getElementById('services').value = 'ALL';
-	  document.getElementById('TestTypes').value = 'ALL';
-	  document.getElementById('ContractingEntities').value ='ALL';
-	  document.getElementById('Payors').value ='ALL';
+	  
 		  
 		  
 		  //vi.map.initialize();
