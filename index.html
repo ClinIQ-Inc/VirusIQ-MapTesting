@@ -120,51 +120,73 @@
 			<div class="col-md-1"></div>
 			<div class="col-md-10">
 				<div class="row">
-					<form class="form-inline col" >
-					  <button class="btn btn-outline-success col-md-2" id="lab_filter_button" type="button" onclick="toggleDialog()">Filter</button>
-					  <input class="form-control col-md-10" type="search" placeholder="Search" aria-label="Search">
-					  <!-- Testing filters-->
-						<div class="filter-wrap">
-							<div id="dialog" class="dialogADD" title="Dialog" style="display:none">
-								<div>
-									<p style="font-size:12px;"><strong>Filter Labs by Services:</strong></p>
-									<form>
-										<label style="font-size:12px;">
-											<input type="checkbox" name="full-service-test" value="full-service" id="at-home-sample" /> At-home Sample
-										</label>
-										<br/>
-										<label style="font-size:12px;">
-											<input type="checkbox" name="full-service-test" value="full-service" id="driven-in-test" /> Drive-in Test
-										</label>
-										<br/>
-										<label style="font-size:12px;">
-											<input type="checkbox" name="full-service" value="full-service" id="walk-in-test" /> Walk-in Test
-										</label>
-										<br/>
-										<label style="font-size:12px;">
-											<input type="checkbox" name="at-home-test" value="enhanced-service" id="at-home-test" />
-											<span> At-Home Test</span>
-										</label>
-										<br/>
-										<label style="font-size:12px;">
-											<input type="checkbox" name="Testing Lab (B2B)" value="Testing Lab (B2B)" id="b2b-lab" /> Testing Lab (B2B)
-										</label>
-										<br/>
-									</form>
-									<p style="font-size:12px;"><strong>Filter Labs by Test:</strong></p>
-									<form>
-										<label style="font-size:12px;"><input type="checkbox" name="fl-testype" value="Antigen" id="Antigen" /> Antigen Tests</label><br>
-										<label style="font-size:12px;"><input type="checkbox" name="fl-testype" value="Serology" id="Serology" /> Serology Tests</label><br>
-										<label style="font-size:12px;"><input type="checkbox" name="fl-testype" value="PCR Molecular" id="PCR_Molecular" /> PCR Molecular Tests</label><br>
-									</form>
+					<div class="col-md-12" style="padding:0;">
+						<button class="btn btn-outline-success col-md-2 dropdown-toggle" style="border-radius: 0; margin:0;" data-toggle="dropdown" id="lab_filter_button" type="button" >Filter</button>
+						<input class="form-control col-md-10" id="filter_text_field" style="border-radius: 0; margin:0;"  type="search" placeholder="Search" aria-label="Search">
+					  
+						<span class="caret"></span></button>
+						<div class="dropdown-menu " style="width:100%;z-index:9000;" role="menu" aria-labelledby="lab_filter_button">
+								<!-- Testing filters-->
+								<div class="container">
+									<div class="row">
+										<div class="col-md-3 text-left">
+											<p style="font-size:12px;"><strong>Services:</strong></p>
+											<form>
+												<label style="font-size:12px;">
+													<input type="checkbox" name="full-service-test" value="full-service" id="at-home-sample" /> At-home Sample
+												</label>
+												<br/>
+												<label style="font-size:12px;">
+													<input type="checkbox" name="full-service-test" value="full-service" id="driven-in-test" /> Drive-in Test
+												</label>
+												<br/>
+												<label style="font-size:12px;">
+													<input type="checkbox" name="full-service" value="full-service" id="walk-in-test" /> Walk-in Test
+												</label>
+												<br/>
+												<label style="font-size:12px;">
+													<input type="checkbox" name="at-home-test" value="enhanced-service" id="at-home-test" />
+													<span> At-Home Test</span>
+												</label>
+												<br/>
+												<label style="font-size:12px;">
+													<input type="checkbox" name="Testing Lab (B2B)" value="Testing Lab (B2B)" id="b2b-lab" /> Testing Lab (B2B)
+												</label>
+												<br/>
+											</form>
+											
+										</div>
+										<div class="col-md-3">
+											<p style="font-size:12px;"><strong>Test:</strong></p>
+											<form>
+												<label style="font-size:12px;"><input type="checkbox" name="fl-testype" value="Antigen" id="Antigen" /> Antigen Tests</label><br>
+												<label style="font-size:12px;"><input type="checkbox" name="fl-testype" value="Serology" id="Serology" /> Serology Tests</label><br>
+												<label style="font-size:12px;"><input type="checkbox" name="fl-testype" value="PCR Molecular" id="PCR_Molecular" /> PCR Molecular Tests</label><br>
+											</form>
+										</div>
+										<div class="col-md-3">
+											<p style="font-size:12px;"><strong>Service Capability:</strong></p>
+											<form>
+												<label style="font-size:12px;"><input type="checkbox" name="fl-testype" value="Antigen" id="Antigen" /> Antigen Tests</label><br>
+												<label style="font-size:12px;"><input type="checkbox" name="fl-testype" value="Serology" id="Serology" /> Serology Tests</label><br>
+												<label style="font-size:12px;"><input type="checkbox" name="fl-testype" value="PCR Molecular" id="PCR_Molecular" /> PCR Molecular Tests</label><br>
+											</form>
+										</div>
+										<div class="col-md-3">
+											<p style="font-size:12px;"><strong>Turnaround Time:</strong></p>
+											<form>
+												<label style="font-size:12px;"><input type="checkbox" name="fl-testype" value="Antigen" id="Antigen" /> Antigen Tests</label><br>
+												<label style="font-size:12px;"><input type="checkbox" name="fl-testype" value="Serology" id="Serology" /> Serology Tests</label><br>
+												<label style="font-size:12px;"><input type="checkbox" name="fl-testype" value="PCR Molecular" id="PCR_Molecular" /> PCR Molecular Tests</label><br>
+											</form>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
+					  
 
 
-		<!--  -->
-					  <!--button class="btn btn-outline-success col-md-2" type="submit">Search</button-->
-					</form>
 				</div>
 			</div>
 			

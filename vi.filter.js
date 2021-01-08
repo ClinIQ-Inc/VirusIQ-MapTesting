@@ -1,16 +1,19 @@
 
-var isShown = false;
-toggleDialog = function(){
-	    if(!isShown){
-	        $("#dialog").show();
-	        isShown = true;
-	    } else {
-	        $("#dialog").hide();
-	        isShown = false;
-	    }
-	}
+
 
 vi.filter = {
+	
+	isShown : false,
+	
+	toggleDialog : function(){
+	    if(!vi.filter.isShown){
+	        $("#dialog").show();
+	        vi.filter.isShown = true;
+	    } else {
+	        $("#dialog").hide();
+	        vi.filter.isShown = false;
+	    }
+	},
 	
 	initialize: function(){
 		
