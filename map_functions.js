@@ -1,9 +1,5 @@
 var locations = [];
 var final_arr = [];
-var dynamicfunc=[];
-
-
-
 
 
 

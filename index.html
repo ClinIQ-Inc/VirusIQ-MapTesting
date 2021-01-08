@@ -23,13 +23,13 @@
 	<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
 	   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
 	   crossorigin=""></script>
-   
+
 </head>
 
 
 <body class="slds-scope">
 	
-	<h3 style="text-align: center;margin-bottom: 30px;margin-top: 20px;display: block;">VirusIQ Lab Locations Prototype</h3>
+	<h3 style="text-align: center; margin-bottom: 30px; margin-top: 20px;display: block;">VirusIQ Lab Locations Prototype</h3>
 
 	<!--
 	<div class="list-header">
@@ -107,10 +107,41 @@
 	
 	</div>-->
 	
-	<div class="container" >
-		
+	<div class="container">
 		<br/>
-	
+
+		<!-- Testing filters-->
+			<div class="filter-wrap">
+      <button style="font-size:14px; font-weight:normal;">Filter Services</button>
+      <!--div class="topnav"-->
+        <!--div class="search-container">
+          <form action="/action_page.php">
+            <input type="text" placeholder="Search.." name="search">
+            <button type="submit"><i class="fa fa-search"></i></button>
+          </form>
+        <!--/div>
+      </div-->
+
+      <p style="font-size:12px;"><strong>Filter Labs by serviceCapabilities:</strong></p>
+      <form>
+        <label style="font-size:12px;">
+          <input type="checkbox" name="fl-services" value="At-home" id="At-home" /> At-home Test</label><br>
+        <label style="font-size:12px;">
+          <input type="checkbox" name="fl-services" value="Full Service" id="Full Service" />Full Service: Drive-in, At-home Sample</label><br>
+        <label style="font-size:12px;">
+          <input type="checkbox" name="fl-services" value="Testing Lab (B2B)" id="Testing Lab (B2B)" />Testing Lab (B2B)</label><br>
+      </form>
+      <p style="font-size:12px;"><strong>Filter Labs by typeOfCovidTest:</strong></p>
+      <form>
+        <label style="font-size:12px;"><input type="checkbox" name="fl-testype" value="Antigen" id="Antigen" /> Antigen Tests</label><br>
+        <label style="font-size:12px;"><input type="checkbox" name="fl-testype" value="Serology" id="Serology" /> Serology Tests</label><br>
+        <label style="font-size:12px;"><input type="checkbox" name="fl-testype" value="PCR Molecular" id="PCR Molecular" /> PCR Molecular Tests</label><br>
+      </form>
+    </div>
+
+
+		<!--  -->
+
 		<div class="row">
 		
 			<div class="col-md-1"></div>
@@ -138,20 +169,14 @@
 				<br/>
 				<div class="spinner-border m-5" role="status">
 				  <span class="sr-only">Loading...</span>
-				</div>
-				
-			
+				</div>			
 			</div>
-			
 			<div class="col-md=5" style="padding:5px;">
-			
 				<div id="leafmap"></div>
-			
 			</div>
-		
 		</div>
 	
-		
+	
 		
 	</div>
 	
@@ -170,6 +195,42 @@
 	<script type="text/javascript" src="map_functions.js"> </script>
 	
 	<script  type="text/javascript" type="text/javascript">
+
+
+
+	// ------------ Filter code starts here ----------------------
+
+	function removeA(arr) {
+      var what, a = arguments, L = a.length, ax;
+      while (L > 1 && arr.length) {
+        what = a[--L];
+        while ((ax= arr.indexOf(what)) !== -1) {
+          arr.splice(ax, 1);
+        }
+      }
+      return arr;
+    }
+
+	var byService = [], byTestType = [];
+    
+    $("input[name=fl-services]").on( "change", function() {
+      if (this.checked) byService.push($(this).attr("value"));
+      else removeA(byService, $(this).attr("value"));
+      console.log(byService);
+    });
+
+
+    $("input[name=fl-testype]").on( "change", function() {
+      if (this.checked) byTestType.push($(this).attr("value"));
+      else removeA(byTestType, $(this).attr("value"));
+      console.log(byTestType);
+    });
+
+	// ------------ Filter code ends here ----------------------
+
+
+
+
 		$(document).ready(function() {
 			/**$('#services').select2().on('change',listQ);
 			$('#TestTypes').select2().on('change',listQ);
@@ -206,9 +267,8 @@
 				.bindPopup('London')
 				.openPopup();
 			
-			
-			
-			
+	
+		function loadMap(){	
 			$.ajax({
 			type: "POST",
 			url: "https://ncoviq.com:9090/v2/api/getLabs",
@@ -223,8 +283,11 @@
 				
 				$("#lab-list").html("");
 				
+
 				var lastloc_latitude, lastloc_longitude;
-				
+				window.alert(byService.find(a=>a.includes(all_labs[0].serviceCapabilities))) && byTestTypes.find(a=>a.includes(all_labs[0].typeOfCovidTest));
+				window.alert(all_labs[0].serviceCapabilities);
+
 				for(var i=0;i<all_labs.length;i+=1){
 				
 					//add it on the left panel
@@ -254,9 +317,9 @@
 					lastloc_longitude = the_lab.latitude;
 					
 				}
-				
-				map.panTo(new L.LatLng(lastloc_latitude, lastloc_longitude));
-				
+				if(lastloc_latitude && lastloc_latitude){
+					map.panTo(new L.LatLng(lastloc_latitude, lastloc_longitude));
+				}
 				//alert(JSON.stringify(data));
 				
 			},
@@ -264,6 +327,8 @@
 				alert(errMsg);
 			}
 		});
+	}
+
 	</script>
 
 
