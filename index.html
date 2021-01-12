@@ -11,6 +11,8 @@
 	   
 	<style>
 	#leafmap { height: 400px; width:500px}
+
+
 	</style>
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -115,16 +117,14 @@
 			</ul>
 		</div>
 		
-		<div class="row">
-		
-			<div class="col-md-1"></div>
-			<div class="col-md-10">
-				<div class="row">
-					<div class="col-md-12" style="padding:0;">
-						<button class="btn btn-outline-success col-md-2 dropdown-toggle" style="border-radius: 0; margin:0;" data-toggle="dropdown" id="lab_filter_button" type="button" >Filter</button>
+		<!--div class="input-group mb-3 col-md-offset-3"-->
+			<!--div class="col-md-1"></div-->
+				<div class="input-group mb-3">
+					<div class="col-md-12 input-group-prepend" style="padding:0;">
+						<button class="btn btn-outline-success col-sm-2 dropdown-toggle" style="border-radius: 0; margin:0;" data-toggle="dropdown" id="lab_filter_button" type="button" >Filter</button>
 						<input class="form-control col-md-10" id="filter_text_field" style="border-radius: 0; margin:0;"  type="search" placeholder="Search" aria-label="Search" />
 						
-						<div class="dropdown-menu " style="width:100%;z-index:9000;" role="menu" aria-labelledby="lab_filter_button">
+						<div class="dropdown-menu" style="width:100%; z-index:9000;" role="menu" aria-labelledby="lab_filter_button">
 								<!-- Testing filters-->
 								<div class="container">
 									<div class="row">
@@ -184,15 +184,9 @@
 								</div>
 							</div>
 						</div>
-					  
-
 
 				</div>
-			</div>
-			
-		
-		</div>
-		
+		<!--/div-->
 		
 		
 		<br/>
