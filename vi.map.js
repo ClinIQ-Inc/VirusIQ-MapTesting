@@ -26,7 +26,7 @@ vi.map =  {
 	},
 	
 	displayLabs: function(all_labs){
-		
+		$("#lab-list").css({"overflow":"scroll", "height": "400px"})
 		$("#lab-list").html("");
 
 		var min_loc_latitude=38, min_loc_longitude=-100, max_loc_latitude=38, max_loc_longitude=-100;
