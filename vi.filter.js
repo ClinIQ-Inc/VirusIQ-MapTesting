@@ -70,7 +70,7 @@ vi.filter = {
 			var new_filter_results = []
 			for(var i=0;i<vi.map.all_lab_records.length;i++){
 				var thelab = vi.map.all_lab_records[i];
-				if(thelab.serviceCapabilities.indexOf("Walk-in Test") >= 0){
+				if(thelab.serviceCapabilities.indexOf("Walk-in") >= 0){
 					new_filter_results.push(thelab);
 				}	
 			}
@@ -81,8 +81,8 @@ vi.filter = {
 			var new_filter_results = []
 			for(var i=0;i<filter_results.length;i++){
 				var thelab = filter_results[i];
-				if(thelab.serviceCapabilities.indexOf("At-Home Test") >= 0){	
-					new_filter_results.push(thelab);	
+				if(thelab.serviceCapabilities.indexOf("At-home Test") >= 0){	
+					new_filter_results.push(thelab);
 				}
 			}
 			filter_results = new_filter_results;	

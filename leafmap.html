@@ -1,5 +1,31 @@
-
 <html>
+  <head>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/leaflet.css' }} />
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/leaflet.js'></script>
+    <script type='text/javascript'>
+      function initMap() {
+        var host = 'https://maps.omniscale.net/v2/{id}/style.grayscale/{z}/{x}/{y}.png';
+
+        var attribution = '&copy; 2021 &middot; <a href="https://maps.omniscale.com/">Omniscale</a> ' +
+            '&middot; Map data: <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>';
+
+        var map = L.map('map').setView([53.14, 8.22], 13);
+          L.tileLayer(host, {
+            id: 'your-api-key',
+            attribution: attribution
+          }).addTo(map);
+
+        map.attributionControl.setPrefix(false);
+      }
+    </script>
+  </head>
+  <body onload='initMap()'>
+    <div id='map' style='height: 400px; width: 400px;'></div>
+  </body>
+</html>
+
+
+<!--html>
 
 <header>
 
@@ -39,4 +65,4 @@
 
 </body>
 
-</html>
+</html-->
