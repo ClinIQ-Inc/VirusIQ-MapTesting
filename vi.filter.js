@@ -40,6 +40,12 @@ vi.filter = {
 		
 	},
 	
+	synchronize_selected_filters: function(){
+		
+		//create all the filters
+		
+	},
+	
 	filter_labs: function(){
 			
 		var filter_results = vi.map.all_lab_records;
