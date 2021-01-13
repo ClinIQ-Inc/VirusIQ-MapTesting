@@ -42,13 +42,13 @@ vi.map =  {
 			var the_lab = all_labs[i];
 			$("#lab-list").append('<div class="row">'+
 			'	<div class="col-md-9">'+
-			'		<div class="card">'+
+			'		<div class="card example">'+
 			'		  <div class="card-body">'+
 			'			<h5 class="card-title"><strong>'+the_lab.managingOrganization+'</strong></h5>'+
 			'			<p class="card-text"><strong>Service Capabilities: </strong>'+the_lab.serviceCapabilities+'</p>'+
-			'			<p class="card-text"><strong>Type of COVID Tests: </strong>'+the_lab.typeOfCovidTest+'</p>'+
+			'			<p class="card-text"><strong>Type of COVID Tests: </strong>'+the_lab.typeOfCovidTest+'</p>'+		
 			'			<p class="card-text"><strong>Test Turnaround:</strong> '+the_lab.testTurnaround+'</p>'+
-	//			<a href="#" class=" disabled">Order Here</a>'+
+				//			<a href="#" class=" disabled">Order Here</a>'+
 			'		  </div>'+
 			'		</div>'+
 			'	</div>'+

@@ -4,6 +4,7 @@
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="TestingMapStyle.css">
+	<link rel="stylesheet" type="text/css" href="vi.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
 	   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
@@ -116,14 +117,17 @@
 				<li>check our VirusIQ platform <a href="https://www.virusiq.health/consult"></a>for consultation</li>
 			</ul>
 		</div-->
-		
 		<div class=" d-flex flex-row justify-content-center">
 			<div class="col-md-1"></div>
 				<div class="input-group mb-3">
 					<div class="col-md-12 input-group-prepend" style="padding:0;">
-						<button class="btn btn-outline-success col-sm-2 dropdown-toggle" style="border-radius: 0; margin:0;" data-toggle="dropdown" id="lab_filter_button" type="button" >Filter</button>
-						<input class="form-control col-md-8" id="filter_text_field" style="border-radius: 0; margin:0;"  type="search" placeholder="Search" aria-label="Search" />
-						<button class="btn btn-outline-success col-sm-2" style="border-radius: 0; margin:0;" id="lab_filter_button" type="button" >Register Lab</button>
+						<button class="btn btn-outline-success col-sm-2 dropdown-toggle" style="background-color: #450f5b;border-color:#450f5b;color: #fff;border-radius: 0; margin:0;" data-toggle="dropdown" id="lab_filter_button" type="button" >Filter</button>
+  						<i class="fas fa-search" aria-hidden="true"></i>
+  						<input class=" active-purple-3 active-purple-4 form-control form-control-sm ml-3 w-75" type="text" placeholder="Search" aria-label="Search">
+  						<div class="col-sm-1"></div>
+
+						<!--input class=" active-purple-2 active-purple-3 active-purple-4 form-control col-md-8" id="filter_text_field" style="border-radius: 0; margin:0;"  type="search" placeholder="Search" aria-label="Search" /-->
+						<button class="btn btn-outline-success col-sm-2" style=" background-color: #450f5b; color: #fff; border-color:#450f5b;border-radius: 0; margin:0;" id="lab_filter_button" type="button">Register Lab</button>
 						
 						<div class="dropdown-menu" style="width:100%; z-index:9000;" role="menu" aria-labelledby="lab_filter_button">
 								<!-- Testing filters-->
@@ -190,27 +194,24 @@
 											<p style="font-size:12px;"><strong>Turnaround Time:</strong></p>
 											<form>
 												<label style="font-size:12px;">
-													<input type="checkbox" class="whatever-checkbox-is" name="fl-testype" value="less than 30 mins" id="less_than_30mins" /> less than 30 mins</label><br>
+													<input type="checkbox" class="whatever-checkbox-is" name="fl-testype" value="less than 30 mins" id="less_than_30mins" /> less than 30 mins</label><br/>
 												<label style="font-size:12px;">
-													<input type="checkbox" class="whatever-checkbox-is" name="fl-testype" value="less than 24hrs" id="less_than_24hrs" /> less than 24hrs</label><br>
+													<input type="checkbox" class="whatever-checkbox-is" name="fl-testype" value="less than 24hrs" id="less_than_24hrs" /> less than 24hrs</label><br/>
 												<label style="font-size:12px;">
-													<input type="checkbox" class="whatever-checkbox-is" name="fl-testype" value="24 - 48hrs" id="24-48hrs" /> 24-48hrs</label><br>
+													<input type="checkbox" class="whatever-checkbox-is" name="fl-testype" value="24 - 48hrs" id="24-48hrs" /> 24-48hrs</label><br/>
 												<label style="font-size:12px;">
-													<input type="checkbox" class="whatever-checkbox-is" name="fl-testype" value="48-72hrs" id="48-72hrs" />  48-72hrs</label><br>
+													<input type="checkbox" class="whatever-checkbox-is" name="fl-testype" value="48-72hrs" id="48-72hrs" />  48-72hrs</label><br/>
 												<label style="font-size:12px;">
-													<input type="checkbox" class="whatever-checkbox-is" name="fl-testype" value="72 - 96hrs" id="72-96hrs" /> 72-96hrs</label><br>
+													<input type="checkbox" class="whatever-checkbox-is" name="fl-testype" value="72 - 96hrs" id="72-96hrs" /> 72-96hrs</label><br/>
 											</form>
 										</div>
 									</div>
-									<div class="col-md-12"><button class="btn btn-primary col-md-11"  id="apply_filters_btn" type="button" >Apply Filters</button></div>
+									<div class="col-md-12"><button class="btn btn-primary col-md-11"  id="apply_filters_btn" type="button" style="background-color: #12236D; border-color: #12236D; color:#fff" onclick="" >Apply Filters</button></div>
 								</div>
 							</div>
 						</div>
-
 				</div>
-			</div></div>
-		
-		
+			</div></div>		
 		<br/>
 	
 		<div class="row d-flex justify-content-center" style="padding:5px;" >

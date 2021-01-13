@@ -8,3 +8,22 @@ display: none;
 -ms-overflow-style: none; /* IE and Edge */
 scrollbar-width: none; /* Firefox */
 }	
+
+.show>.btn-outline-success.dropdown-toggle {
+    color: #fff;
+    background-color: #12236D;
+    border-color: #12236D;
+   }
+
+.btn-primary {
+    color: #fff;
+    background-color: #450f5b;
+
+}
+
+.btn-outline-success {
+    color: #fff;
+    background-color: #450f5b;
+    background-image: none;
+    border-color: #450f5b;
+}

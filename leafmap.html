@@ -1,4 +1,4 @@
-<html>
+<!--html>
   <head>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/leaflet.css' }} />
     <script src='https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.3/leaflet.js'></script>
@@ -22,7 +22,56 @@
   <body onload='initMap()'>
     <div id='map' style='height: 400px; width: 400px;'></div>
   </body>
+</html-->
+
+
+
+<html>
+
+<header>
+
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+   crossorigin=""/>
+
+	<style>
+	
+		#mapid { height: 180px; }
+	
+	</style>
+   
+   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+   crossorigin=""></script>
+
+</header>
+
+<body>
+
+	 <div id="mapid"></div>
+	 
+	 <script>
+	 
+		var map = L.map('mapid').setView([51.505, -0.09], 13);
+
+		L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+			attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+		}).addTo(map);
+
+		L.marker([51.5, -0.09]).addTo(map)
+			.bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
+			.openPopup();
+	 
+	 </script>
+
+</body>
+
 </html>
+
+
+
+
+
 
 
 <!--html>
