@@ -122,7 +122,8 @@
 				<div class="input-group mb-3">
 					<div class="col-md-12 input-group-prepend" style="padding:0;">
 						<button class="btn btn-outline-success col-sm-2 dropdown-toggle" style="border-radius: 0; margin:0;" data-toggle="dropdown" id="lab_filter_button" type="button" >Filter</button>
-						<input class="form-control col-md-10" id="filter_text_field" style="border-radius: 0; margin:0;"  type="search" placeholder="Search" aria-label="Search" />
+						<input class="form-control col-md-8" id="filter_text_field" style="border-radius: 0; margin:0;"  type="search" placeholder="Search" aria-label="Search" />
+						<button class="btn btn-outline-success col-sm-2" style="border-radius: 0; margin:0;" id="lab_filter_button" type="button" >Register Lab</button>
 						
 						<div class="dropdown-menu" style="width:100%; z-index:9000;" role="menu" aria-labelledby="lab_filter_button">
 								<!-- Testing filters-->
@@ -132,20 +133,20 @@
 											<p style="font-size:12px;"><strong>Services:</strong></p>
 											<form>
 												<label style="font-size:12px;">
-													<input type="checkbox" class="whatever-checkbox-is" name="full-service" value="full-service" id="walk-in-test" /> Walk-in Test
+													<input type="checkbox" class="whatever-checkbox-is" name="full-service" value="full-service" id="walk-in-test" /> Walk-in
 												</label>
 												<br/>
 												<label style="font-size:12px;">
-													<input type="checkbox" class="whatever-checkbox-is" name="full-service-test" value="full-service" id="driven-in-test" /> Drive-in Test
+													<input type="checkbox" class="whatever-checkbox-is" name="full-service-test" value="full-service" id="driven-in-test" /> Drive-in
 												</label>
 												<br/>
 												<label style="font-size:12px;">
 													<input type="checkbox" class="whatever-checkbox-is" name="at-home-test" value="enhanced-service" id="at-home-test" />
-													<span> At-Home Test</span>
+													<span> At-Home Rapid Test</span>
 												</label>
 												<br/>
 												<label style="font-size:12px;">
-													<input type="checkbox" class="whatever-checkbox-is" name="full-service-test" value="full-service" id="at-home-sample" /> At-home Sample
+													<input type="checkbox" class="whatever-checkbox-is" name="full-service-test" value="full-service" id="at-home-sample" /> At-home Sample Collection
 												</label>
 												<br/>
 												<label style="font-size:12px;">
@@ -158,38 +159,46 @@
 												</label>
 												<br/-->
 											</form>
-											
 										</div>
 										<div class="col-md-3">
-											<p style="font-size:12px;"><strong>Test:</strong></p>
+											<p style="font-size:12px;"><strong>Tests:</strong></p>
 											<form>
-												<label style="font-size:12px;"><input type="checkbox" class="whatever-checkbox-is" name="fl-testype" value="Antigen" id="Antigen" /> Antigen Tests</label><br>
-												<label style="font-size:12px;"><input type="checkbox" class="whatever-checkbox-is" name="fl-testype" value="Serology" id="Serology" /> Serology Tests</label><br>
-												<label style="font-size:12px;"><input type="checkbox" class="whatever-checkbox-is" name="fl-testype" value="PCR Molecular" id="PCR_Molecular" /> PCR Molecular Tests</label><br>
-												<label style="font-size:12px;"><input type="checkbox" class="whatever-checkbox-is" name="fl-testype" value="Pooled Testing" id="pooled-testing" /> Pooled Testing</label><br>
+												<label style="font-size:12px;">
+													<input type="checkbox" class="whatever-checkbox-is" name="fl-testype" value="Antigen" id="Antigen" /> Antigen Tests</label><br/>
+												<label style="font-size:12px;">
+													<input type="checkbox" class="whatever-checkbox-is" name="fl-testype" value="Serology" id="Serology" /> Serology Tests</label><br/>
+												<label style="font-size:12px;">
+													<input type="checkbox" class="whatever-checkbox-is" name="fl-testype" value="PCR Molecular" id="PCR_Molecular" /> PCR Molecular Tests</label><br/>
+												<label style="font-size:12px;">
+													<input type="checkbox" class="whatever-checkbox-is" name="fl-testype" value="Pooled Testing" id="pooled-testing" /> Pooled Testing</label><br/>
 											</form>
 										</div>
 										<div class="col-md-3">
 											<p style="font-size:12px;"><strong>Sample Type:</strong></p>
 											<form>
-												<label style="font-size:12px;"><input type="checkbox" class="whatever-checkbox-is" name="fl-testype" value="PCR Molecular" id="PCR_Molecular" /> Saliva</label><br>
-												<label style="font-size:12px;"><input type="checkbox" class="whatever-checkbox-is" name="fl-testype" value="PCR Molecular" id="PCR_Molecular" /> Oral Swab</label><br>
-												<label style="font-size:12px;"><input type="checkbox" class="whatever-checkbox-is" name="fl-testype" value="PCR Molecular" id="PCR_Molecular" /> Nasal Swab</label><br>
-												<label style="font-size:12px;"><input type="checkbox" class="whatever-checkbox-is" name="fl-testype" value="PCR Molecular" id="PCR_Molecular" /> Serology</label><br>
-												<label style="font-size:12px;"><input type="checkbox" class="whatever-checkbox-is" name="fl-testype" value="Antigen" id="Antigen" /> Anterior Nasal</label><br>
-												<label style="font-size:12px;"><input type="checkbox" class="whatever-checkbox-is" name="fl-testype" value="Serology" id="Serology" /> Mid Turbinate Swab</label><br>
-																				
+												<label style="font-size:12px;">
+													<input type="checkbox" class="whatever-checkbox-is" name="fl-testype" value="PCR Molecular" id="PCR_Molecular" /> Saliva</label><br>
+												<label style="font-size:12px;">
+													<input type="checkbox" class="whatever-checkbox-is" name="fl-testype" value="PCR Molecular" id="PCR_Molecular" /> Oral Swab</label><br>
+												<label style="font-size:12px;">
+													<input type="checkbox" class="whatever-checkbox-is" name="fl-testype" value="PCR Molecular" id="PCR_Molecular" /> Nasal Swab</label><br>
+												<label style="font-size:12px;">
+													<input type="checkbox" class="whatever-checkbox-is" name="fl-testype" value="PCR Molecular" id="PCR_Molecular" /> Serology</label><br>						
 											</form>
 										</div>
 										<div class="col-md-3">
 											<p style="font-size:12px;"><strong>Turnaround Time:</strong></p>
 											<form>
-												<label style="font-size:12px;"><input type="checkbox" class="whatever-checkbox-is" name="fl-testype" value="Antigen" id="Antigen" /> <30 mins</label><br>
-												<label style="font-size:12px;"><input type="checkbox" class="whatever-checkbox-is" name="fl-testype" value="Serology" id="Serology" /><24hrs</label><br>
-												<label style="font-size:12px;"><input type="checkbox" class="whatever-checkbox-is" name="fl-testype" value="PCR Molecular" id="PCR_Molecular" />  24-48hrs</label><br>
-												<label style="font-size:12px;"><input type="checkbox" class="whatever-checkbox-is" name="fl-testype" value="PCR Molecular" id="PCR_Molecular" />  48-72hrs</label><br>
-												<label style="font-size:12px;"><input type="checkbox" class="whatever-checkbox-is" name="fl-testype" value="PCR Molecular" id="PCR_Molecular" /> 72-96hrs</label><br>
-
+												<label style="font-size:12px;">
+													<input type="checkbox" class="whatever-checkbox-is" name="fl-testype" value="Antigen" id="Antigen" /> less than 30 mins</label><br>
+												<label style="font-size:12px;">
+													<input type="checkbox" class="whatever-checkbox-is" name="fl-testype" value="Serology" id="Serology" /> less than 24hrs</label><br>
+												<label style="font-size:12px;">
+													<input type="checkbox" class="whatever-checkbox-is" name="fl-testype" value="PCR Molecular" id="PCR_Molecular" />  24-48hrs</label><br>
+												<label style="font-size:12px;">
+													<input type="checkbox" class="whatever-checkbox-is" name="fl-testype" value="PCR Molecular" id="PCR_Molecular" />  48-72hrs</label><br>
+												<label style="font-size:12px;">
+													<input type="checkbox" class="whatever-checkbox-is" name="fl-testype" value="PCR Molecular" id="PCR_Molecular" /> 72-96hrs</label><br>
 											</form>
 										</div>
 									</div>

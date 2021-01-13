@@ -44,11 +44,11 @@ vi.map =  {
 			'	<div class="col-md-9">'+
 			'		<div class="card">'+
 			'		  <div class="card-body">'+
-			'			<h5 class="card-title">'+the_lab.managingOrganization+'</h5>'+
-			'			<p class="card-text">Service Capabilities: '+the_lab.serviceCapabilities+'</p>'+
-			'			<p class="card-text">Type of COVID Tests: '+the_lab.typeOfCovidTest+'</p>'+
-			'			<p class="card-text">Test Around: '+the_lab.testTurnaround+'</p>'+
-			'			<a href="#" class="card-link">Order Here</a>'+
+			'			<h5 class="card-title"><strong>'+the_lab.managingOrganization+'</strong></h5>'+
+			'			<p class="card-text"><strong>Service Capabilities: </strong>'+the_lab.serviceCapabilities+'</p>'+
+			'			<p class="card-text"><strong>Type of COVID Tests: </strong>'+the_lab.typeOfCovidTest+'</p>'+
+			'			<p class="card-text"><strong>Test Turnaround:</strong> '+the_lab.testTurnaround+'</p>'+
+	//			<a href="#" class=" disabled">Order Here</a>'+
 			'		  </div>'+
 			'		</div>'+
 			'	</div>'+
