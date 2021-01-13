@@ -59,7 +59,7 @@ vi.filter = {
 			var new_filter_results = []
 			for(var i=0;i<filter_results.length;i++){
 				var thelab = filter_results[i];
-				if(thelab.serviceCapabilities.indexOf("Drive-in Test") >= 0){	
+				if(thelab.serviceCapabilities.indexOf("Drive-in") >= 0){	
 					new_filter_results.push(thelab);	
 				}
 			}
@@ -88,16 +88,154 @@ vi.filter = {
 			filter_results = new_filter_results;	
 		}
 		
-		if($("#b2b-lab").is(":checked")){
+		if($("#community-test").is(":checked")){
 			var new_filter_results = []
 			for(var i=0;i<filter_results.length;i++){
 				var thelab = filter_results[i];
-				if(thelab.serviceCapabilities.indexOf("Testing Lab (B2B)") >= 0){	
-					new_filter_results.push(thelab);	
+				if(thelab.serviceCapabilities.indexOf("Community test") >= 0){ // here community test is not added in the database	
+					new_filter_results.push(thelab);
 				}
 			}
 			filter_results = new_filter_results;	
 		}
+
+		if($("#Antigen").is(":checked")){
+			var new_filter_results = []
+			for(var i=0;i<filter_results.length;i++){
+				var thelab = filter_results[i];
+				if(thelab.serviceCapabilities.indexOf("AntigenTests") >= 0){ 
+					new_filter_results.push(thelab);
+				}
+			}
+			filter_results = new_filter_results;	
+		}
+
+		if($("#PCR_Molecular").is(":checked")){
+			var new_filter_results = []
+			for(var i=0;i<filter_results.length;i++){
+				var thelab = filter_results[i];
+				if(thelab.serviceCapabilities.indexOf("PCR Molecular Tests") >= 0){ 
+					new_filter_results.push(thelab);
+				}
+			}
+			filter_results = new_filter_results;	
+		}
+
+		if($("#Serology").is(":checked")){
+			var new_filter_results = []
+			for(var i=0;i<filter_results.length;i++){
+				var thelab = filter_results[i];
+				if(thelab.serviceCapabilities.indexOf("Serology Tests") >= 0){ 
+					new_filter_results.push(thelab);
+				}
+			}
+			filter_results = new_filter_results;	
+		}
+
+		if($("#pooled-testing").is(":checked")){
+			var new_filter_results = []
+			for(var i=0;i<filter_results.length;i++){
+				var thelab = filter_results[i];
+				if(thelab.serviceCapabilities.indexOf("Pooled Testing") >= 0){ // here pooled test is not added in the database	
+					new_filter_results.push(thelab);
+				}
+			}
+			filter_results = new_filter_results;	
+		}
+		//sample type check
+		if($("#saliva").is(":checked")){
+			var new_filter_results = []
+			for(var i=0;i<filter_results.length;i++){
+				var thelab = filter_results[i];
+				if(thelab.serviceCapabilities.indexOf("Saliva Test") >= 0){
+					new_filter_results.push(thelab);
+				}
+			}
+			filter_results = new_filter_results;	
+		}
+		if($("#oral_swab_sample").is(":checked")){
+			var new_filter_results = []
+			for(var i=0;i<filter_results.length;i++){
+				var thelab = filter_results[i];
+				if(thelab.serviceCapabilities.indexOf("Oropharyngeal Swab Test") >= 0){ 
+					new_filter_results.push(thelab);
+				}
+			}
+			filter_results = new_filter_results;	
+		}
+		if($("#nasal_swab_sample").is(":checked")){
+			var new_filter_results = []
+			for(var i=0;i<filter_results.length;i++){
+				var thelab = filter_results[i];
+				if(thelab.serviceCapabilities.indexOf("Nasopharyngeal Swab Test") >= 0){ 	
+					new_filter_results.push(thelab);
+				}
+			}
+			filter_results = new_filter_results;	
+		}
+		if($("#serology_sample").is(":checked")){
+			var new_filter_results = []
+			for(var i=0;i<filter_results.length;i++){
+				var thelab = filter_results[i];
+				if(thelab.serviceCapabilities.indexOf("Serum Test") >= 0){ 
+					new_filter_results.push(thelab);
+				}
+			}
+			filter_results = new_filter_results;	
+		}
+		//Turnaround Time
+		if($("#less_than_30mins").is(":checked")){
+			var new_filter_results = []
+			for(var i=0;i<filter_results.length;i++){
+				var thelab = filter_results[i];
+				if(thelab.serviceCapabilities.indexOf("less_than_30mins") >= 0){ //no data for less than 30 mins
+					new_filter_results.push(thelab);
+				}
+			}
+			filter_results = new_filter_results;	
+		}
+		if($("#less_than_24hrs").is(":checked")){
+			var new_filter_results = []
+			for(var i=0;i<filter_results.length;i++){
+				var thelab = filter_results[i];
+				if(thelab.serviceCapabilities.indexOf("Less than 24 hrs") >= 0){ 
+					new_filter_results.push(thelab);
+				}
+			}
+			filter_results = new_filter_results;	
+		}
+		if($("#24-48hrs").is(":checked")){
+			var new_filter_results = []
+			for(var i=0;i<filter_results.length;i++){
+				var thelab = filter_results[i];
+				if(thelab.serviceCapabilities.indexOf("Within 24-48 hrs") >= 0){ 	
+					new_filter_results.push(thelab);
+				}
+			}
+			filter_results = new_filter_results;	
+		}
+		if($("#48-72hrs").is(":checked")){
+			var new_filter_results = []
+			for(var i=0;i<filter_results.length;i++){
+				var thelab = filter_results[i];
+				if(thelab.serviceCapabilities.indexOf("48-72 hrs") >= 0){ 
+					new_filter_results.push(thelab);
+				}
+			}
+			filter_results = new_filter_results;	
+		}
+		if($("#72-96hrs").is(":checked")){
+			var new_filter_results = []
+			for(var i=0;i<filter_results.length;i++){
+				var thelab = filter_results[i];
+				if(thelab.serviceCapabilities.indexOf("72-96hrs") >= 0){ //no data for these hrs
+					new_filter_results.push(thelab);
+				}
+			}
+			filter_results = new_filter_results;	
+		}
+
+
 		console.log("filtered results: ", filter_results);
 		
 		if(filter_results.length>0){
