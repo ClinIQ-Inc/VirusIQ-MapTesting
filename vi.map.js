@@ -249,7 +249,54 @@ vi.map =  {
 				alert(errMsg);
 			}
 		});
-	}
+	},
+
+
+				//--------- color codes for virusIQ------------------------------
+				//Grey - #6F7070 (inactive); Black - #020926 (Testing Lab (B2B)); 
+				//Navy blue - #12236D (community testing); Blue - #2B3AB6 (Drive-in); 
+				//Lighter Blue - #8A9DED (Walk-in); Purple - #450F5B (At-Home Sample); 
+				//Lavender - #7D2D96 (At-Home no prescription); Light purple - #B87DD3 (Airport Approved)
+				//--------------------------------------------------------------------
+	// custommarker: function(all_labs){
+	// 	var colors = {
+ //        grey: '#6F7070', //inactive labs
+ //        navy_blue: '#12236D', //community testing
+ //        blue: '#2B3AB6', //drive-in
+ //        lighter_blue: '#8A9DED', //walk-in
+ //        purple: '#450F5B', //at-home sample
+ //        Lavender: '#7D2D96' //athome no prescription
+ //        Light_purple: '#B87DD3' //Airport Approved
+ //    	};
+
+ //    	var markerOptions = {
+ //        	opacity: 1,
+ //    	};
+
+	//     switch(Data[i].value) {
+	//         case "A":
+	//             markerOptions.color = colors.grey;
+	//             break;
+	//         case "B":
+	//             markerOptions.color = colors.navy_blue;
+	//             break;
+	//         case "C":
+	//             markerOptions.color = colors.blue;
+	//             break;
+	//         default:
+	//             markerOptions.color = colors.lighter_blue;
+	//             break;
+	//          default:
+	//          	markerOptions.color = colors.purple;
+	//          default:
+	//          	markerOptions.color= colors.Lavender;
+	//          default:
+	//          	markerOptions.color = colors. Light_purple;
+
+	//      }
+
+	//      var marker = new L.circleMarker(markerLocation,markerOptions).addTo(map);
+	//  },
 		
 	
 }
