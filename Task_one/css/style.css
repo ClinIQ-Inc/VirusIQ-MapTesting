@@ -45,6 +45,7 @@ button:focus {outline:0!important;}
 
 .filter-container {
   display: block;
+  left: 0;
   position: absolute;
   z-index: 10;
   display: none;
