@@ -97,7 +97,10 @@ $(document).ready(function(){
         let index = pageData.findIndex(function(lab){
             return parseInt($(self).attr('id')) == lab.labId;
         });
-        map.setZoom(17);
-        map.panTo({ lat: parseFloat(pageData[index].latitude), lng: parseFloat(pageData[index].longitude) });
+        map.setZoom(4);
+        if(pageData[index].latitude && pageData[index].longitude) {
+            map.setZoom(17);
+            map.panTo({ lat: parseFloat(pageData[index].latitude), lng: parseFloat(pageData[index].longitude) });
+        }
     });
 });

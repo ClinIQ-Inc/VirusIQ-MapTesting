@@ -11,7 +11,10 @@ button:active {
 button:focus {outline:0!important;}
 
 .header-wrapper {
-  padding: 10px 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 .apply_filters_btn {
@@ -70,6 +73,11 @@ button:focus {outline:0!important;}
   color: #fff;
 }
 
+.card-map-wrapper {
+  padding-left: 0;
+  padding-right: 0;
+}
+
 .filter-option-heading {
   font-size: 14px;
   font-weight: 600;
@@ -117,9 +125,14 @@ button:focus {outline:0!important;}
   font-weight: 600;
 }
 
-.card-container, #map {
+.card-container {
+  height: calc(100vh - 150px);
+  overflow: auto;
+}
+#map {
   height: calc(100vh - 60px);
   overflow: auto;
+  padding-right: 30px;
 }
 
 .card-section {
@@ -129,10 +142,6 @@ button:focus {outline:0!important;}
 
 .card-section:first-child {
   margin-top: 0;
-}
-
-.header-action-group {
-  padding: 0 30px;
 }
 
 @media only screen and (max-width: 768px) {
