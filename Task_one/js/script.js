@@ -1,5 +1,7 @@
 $(document).ready(function(){
 
+    var map;
+    var pageData;
     function fetchLabInfo() {
         $(".spinner-wrapper").show()
         $.ajax({
@@ -11,6 +13,7 @@ $(document).ready(function(){
 			dataType: "json",
 			success: function(data){
                 $(".spinner-wrapper").hide();
+                pageData = data.response.labData;
                 displayLabs(data.response.labData);
                 initMap(data.response.labData);
 			},
@@ -25,11 +28,12 @@ $(document).ready(function(){
     // Initialize and add the map
     function initMap(data) {
         // The location of Uluru
-        const uluru = { lat: parseFloat(data[0].latitude), lng: parseFloat(data[0].longitude) };
-        const map = new google.maps.Map(document.getElementById("map"), {
+        const initialPositon = { lat: parseFloat(data[0].latitude), lng: parseFloat(data[0].longitude) };
+        map = new google.maps.Map(document.getElementById("map"), {
             zoom: 4,
-            center: uluru,
         });
+        map.setCenter(initialPositon);
+
         var infowindow = new google.maps.InfoWindow();
 
         for(let i=0; i<data.length;i+=1) {
@@ -87,17 +91,13 @@ $(document).ready(function(){
         }
     });
 
-    
-
-
+    $(document).on("click",".card-section",function() {
+        $(this).attr('id');
+        var self = this;
+        let index = pageData.findIndex(function(lab){
+            return parseInt($(self).attr('id')) == lab.labId;
+        });
+        map.setZoom(17);
+        map.panTo({ lat: parseFloat(pageData[index].latitude), lng: parseFloat(pageData[index].longitude) });
+    });
 });
-
-// data.response.labData
-
-// managingOrganization
-// serviceCapabilities
-// typeOfCovidTest
-// testTurnaround
-
-// latitude
-// longitude
