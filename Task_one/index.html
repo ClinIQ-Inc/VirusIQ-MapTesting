@@ -10,6 +10,8 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
         <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1Ij923cEOwsh8FEkAbd1iKgni6_qL4Nk" type="text/javascript"></script>
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+        <script src="js/Control.FullScreen.js"></script>
         <script src="js/script.js"></script>
 
         <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"  type='text/css'>
@@ -17,7 +19,9 @@
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
 	    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
         crossorigin=""/>
+        <link rel="stylesheet" href="css/Control.FullScreen.css" />
 
+            
         <link rel="stylesheet" href="css/reset.css">
         <link rel="stylesheet" href="css/style.css">
     </head>
@@ -25,9 +29,9 @@
         <header class="container-fluid header-wrapper">
             <div class="row header-action-group">
                 <!-- <button class="btn col-md-2 dropdown-toggle filter-btn d-sm-none d-md-block" data-toggle="dropdown" id="lab_filter_button" type="button" >Filter</button> -->
-                <button class="btn filter-btn col-1 btn-primary" id="lab_filter_button" type="button" ><i class="fa fa-filter"></i></button>
+                <button class="btn filter-btn col-1 btn-primary" id="lab_filter_button" type="button" ><i class="fa fa-filter"></i> <span class="filter-btn-label">Filter</span></button>
                 <div class="search-wrapper input-group rounded col-11 col-md-9">
-                    <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
+                    <input type="search" class="form-control rounded" placeholder="Search by County or Zip Code" aria-label="Search"
                         aria-describedby="search-addon" />
                     <span class="input-group-text border-0" id="search-addon">
                         <i class="fa fa-search"></i>
@@ -174,7 +178,7 @@
         </header>
         <div class="container-fluid card-map-wrapper">
             <div class="row">
-                <div class="col-md-6 col-12 card-wrapper">
+                <div class="col-md-3 col-12 card-wrapper">
                     <div class="total-labs container-fluid">
                         <div class="row">
                             <span class="col-10">Total Labs:</span>
@@ -185,7 +189,7 @@
 
                     </div>
                 </div>
-                <div class="col-md-6  col-12" id="map">
+                <div class="col-md-9  col-12" id="map">
                 </div>
             </div>
         </div>

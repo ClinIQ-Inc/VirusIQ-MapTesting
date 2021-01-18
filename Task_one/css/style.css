@@ -21,8 +21,6 @@ button:focus {outline:0!important;}
   margin-top: 10px; 
 }
 .filter-btn {
-  background-color: #450f5b;
-  border-color:#450f5b;
   color: #fff;
   border-radius: 0; 
   margin:0; 
@@ -32,22 +30,16 @@ button:focus {outline:0!important;}
 }
 
 .register-btn {
-  background-color: #450f5b; 
   color: #fff; 
-  border-color:#450f5b;
   border-radius: 0; 
   margin:0;
-}
-
-.register-btn:hover, .btn-primary:hover {
-  background-color: #751999;
 }
 
 .filter-container {
   display: block;
   left: 0;
   position: absolute;
-  z-index: 10;
+  z-index: 1100;
   display: none;
   padding-bottom: 15px;
   padding-bottom: 15px;
@@ -69,9 +61,18 @@ button:focus {outline:0!important;}
 }
 
 .btn-primary {
-  background-color: #450f5b; 
-  border-color: #450f5b; 
+  background: linear-gradient(to bottom, #12236d 0%,#450f5b 100%);
+  border-color: #12236d; 
   color: #fff;
+}
+.btn-primary:hover:active {
+  background: linear-gradient(to bottom, #12236d 0%,#450f5b 100%)!important;
+  border-color: #12236d; 
+}
+
+.btn-primary:hover {
+  background: linear-gradient(to bottom, #12236d 0%,#7d2d96 100%)!important; 
+  border-color: #020926!important; 
 }
 
 .card-map-wrapper {
@@ -106,18 +107,26 @@ button:focus {outline:0!important;}
   display: block;
 }
 
-.input-group-text {
+.search-wrapper  .input-group-text {
   position: absolute;
   right: 15px;
   top: 5px;
   background: transparent;
 }
+.search-wrapper  input, .search-wrapper  input:focus {
+  border: 1px solid #12236d!important;
+  
+}
+.search-wrapper i {
+  color: #12236d;
+}
 .card-section {
   color: rgb(22, 50, 92);
   cursor: pointer;
 }
+
 .card-section:hover {
-  background: #e4e4e4;
+  background: rgba(69,15,91,.1);
 }
 .card-text {
   margin-bottom: 10px;
@@ -130,6 +139,11 @@ button:focus {outline:0!important;}
   height: calc(100vh - 150px);
   overflow: auto;
 }
+
+.card-container .card-section {
+  border: 1px solid #12236d;
+}
+
 #map {
   height: calc(100vh - 60px);
   overflow: auto;
@@ -146,6 +160,9 @@ button:focus {outline:0!important;}
 }
 
 @media only screen and (max-width: 768px) {
+  .filter-btn-label {
+    display: none;
+  }
   .register-btn {
     margin-top: 10px;
   }
