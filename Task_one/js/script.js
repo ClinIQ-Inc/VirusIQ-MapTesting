@@ -160,22 +160,19 @@ $(document).ready(function(){
     var appliedFilter = [];
 
     $(".apply_filters_btn").click(function(){
-        appliedFilter = selectedFilter;
+        appliedFilter = [];
+        $(".filter-checkbox").each(function(i, obj) {
+            if(obj.checked) {
+                appliedFilter.push(obj.id);
+            } 
+        });
+        
         $(".filter-container").hide();
 
         if(appliedFilter.length <= 0) {
             displayLabs(pageData);
             return
         }
-        let dummy = [];
-        $.each(pageData, function(i, lab) {
-            if(dummy.indexOf(lab.labId) == -1) {
-                dummy.push(lab.labId);
-            } else {
-                console.log("else part");
-                console.log(lab);
-            }
-        });
         let filteredLab = [];
         $.each(pageData, function(i, lab) {
             $.each(appliedFilter, function(idx, filter) {
@@ -213,7 +210,7 @@ $(document).ready(function(){
     });
     
     $("#lab_filter_button").click(function(e){
-        selectedFilter = appliedFilter;
+        selectedFilter = [];
         $(".filter-checkbox").each(function(i, obj) {
             obj.checked = appliedFilter.includes(obj.id);
         });
