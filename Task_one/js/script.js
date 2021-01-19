@@ -2,6 +2,28 @@ $(document).ready(function(){
 
     var map;
     var pageData;
+
+    var filterMap = {
+        "at-home-sample": "At-home Sample",
+        "driven-in-test": "Drive-in",
+        "walk-in-test": "Walk-in",
+        "at-home-test": "At-home Test",
+        "community-test": "Community test",
+        "Antigen": "AntigenTests",
+        "PCR_Molecular": "PCR Molecular Tests",
+        "Serology": "Serology Tests",
+        "pooled-testing": "Pooled Testing",
+        "saliva": "Saliva Test",
+        "oral_swab_sample": "Oropharyngeal Swab Test",
+        "nasal_swab_sample": "Nasopharyngeal Swab Test",
+        "serology_sample": "Serum Test",
+        "less_than_30mins": "less_than_30 mins",
+        "less_than_24hrs": "Less than 24 hrs",
+        "24-48hrs": "Within 24-48 hrs",
+        "48-72hrs": "48-72 hrs",
+        "72-96hrs": "72-96hrs"
+    }
+
     function fetchLabInfo() {
         $(".spinner-wrapper").show()
         $.ajax({
@@ -59,9 +81,9 @@ $(document).ready(function(){
         //     })(marker, i));
         // }
 
-        map = L.map('map').setView([parseFloat(data[0].longitude), parseFloat(data[0].latitude)], 2);
+        map = L.map('map').setView([parseFloat(data[0].latitude), parseFloat(data[0].longitude)], 2);
         var virusIQmarker = L.icon({
-            iconUrl: 'img/iq_marker1.png',
+            iconUrl: 'img/inactive.svg',
             shadowUrl: 'img/iq_marker_shadow.png',
         
             iconSize:     [40, 60], // size of the icon
@@ -76,7 +98,7 @@ $(document).ready(function(){
 		}).addTo(map);
         for(let i=0; i<data.length;i+=1) {
             let labData = data[i];
-            L.marker([labData.longitude, labData.latitude], {icon: virusIQmarker}).addTo(map)
+            L.marker([labData.latitude, labData.longitude], {icon: virusIQmarker}).addTo(map)
             .bindPopup(labData.managingOrganization)
             .on('click', function(e) {
                 console.log($('#'+labData.labId).position().top);
@@ -93,10 +115,11 @@ $(document).ready(function(){
     function displayLabs(data) {
         $("#lab-list-screen").empty();
         $(".lab-count").empty();
-        $(".lab-count").append(data.length);
+        $(".lab-count").append(data.filter(function(e) { return e.is_valid_lab; }).length);
         for(let i=0; i<data.length;i+=1) {
             let labData = data[i];
-            $("#lab-list-screen").append(`<div class="card card-section" id="${labData.labId}"	>   
+            if(labData.is_valid_lab) {
+                $("#lab-list-screen").append(`<div class="card card-section" id="${labData.labId}"	>   
                     <div class="card-body">			
                         <h5 class="card-title">${labData.managingOrganization}</h5>
                         <p class="card-text">${labData.serviceCapabilities}</p>			
@@ -104,6 +127,7 @@ $(document).ready(function(){
                         <p class="card-text">${labData.testTurnaround}</p>		  
                     </div>		
                 </div>`)
+            }
         }
     }
 
@@ -121,11 +145,11 @@ $(document).ready(function(){
         let index = pageData.findIndex(function(lab){
             return parseInt($(self).attr("id")) == lab.labId;
         });
-        map.setView([parseFloat(pageData[0].longitude), parseFloat(pageData[0].latitude)], 2)
+        map.setView([parseFloat(pageData[0].latitude), parseFloat(pageData[0].longitude)], 2)
         if(pageData[index].latitude && pageData[index].longitude) {
             // map.setZoom(17);
             // map.panTo({ lat: parseFloat(pageData[index].latitude), lng: parseFloat(pageData[index].longitude) });
-            map.setView([parseFloat(pageData[index].longitude), parseFloat(pageData[index].latitude)], 13);
+            map.setView([parseFloat(pageData[index].latitude), parseFloat(pageData[index].longitude)], 13);
 
         }
     });
@@ -137,24 +161,61 @@ $(document).ready(function(){
 
     $(".apply_filters_btn").click(function(){
         appliedFilter = selectedFilter;
+        $(".filter-container").hide();
+
+        if(appliedFilter.length <= 0) {
+            displayLabs(pageData);
+            return
+        }
+        let dummy = [];
+        $.each(pageData, function(i, lab) {
+            if(dummy.indexOf(lab.labId) == -1) {
+                dummy.push(lab.labId);
+            } else {
+                console.log("else part");
+                console.log(lab);
+            }
+        });
+        let filteredLab = [];
+        $.each(pageData, function(i, lab) {
+            $.each(appliedFilter, function(idx, filter) {
+                let filterValue = filterMap[filter].toLowerCase().replace(/ /g,'');
+                if(filteredLab.map(function(e) { return e.labId; }).indexOf(lab.labId) === -1) {
+                    if(lab.serviceCapabilities.toLowerCase().replace(/ /g,'').includes(filterValue)) {
+                        filteredLab.push(lab);
+                    }
+                    if(lab.typeOfCovidTest.toLowerCase().replace(/ /g,'').includes(filterValue)) {
+                        filteredLab.push(lab);
+                    }
+                    if(lab.typeOfSpecimenCollected.toLowerCase().replace(/ /g,'').includes(filterValue)) {
+                        filteredLab.push(lab);
+                    }
+                    if(lab.testTurnaround.toLowerCase().replace(/ /g,'').includes(filterValue)) {
+                        filteredLab.push(lab);
+                    }
+                }
+            });
+        });
+        displayLabs(filteredLab);
     });
 
     $(".filter-checkbox").change(function() {
         var self = this;
         if (this.checked) {
             // the checkbox is now checked 
-            selectedFilter.push(this.value);
+            selectedFilter.push(this.id);
         } else {
             // the checkbox is now no longer checked
             selectedFilter = $.grep(selectedFilter, function(value) {
-                return value != self.value;
+                return value != self.id;
             });
         }
     });
     
     $("#lab_filter_button").click(function(e){
+        selectedFilter = appliedFilter;
         $(".filter-checkbox").each(function(i, obj) {
-            obj.checked = appliedFilter.includes(obj.value);
+            obj.checked = appliedFilter.includes(obj.id);
         });
 
         $(".filter-container").toggle();

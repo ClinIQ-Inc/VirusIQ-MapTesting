@@ -165,11 +165,14 @@ select[multiple]
 }
 
 textarea:hover, 
-input:hover, 
+input[type="text"]:hover, 
+input[type="search"]:hover,
 textarea:active, 
-input:active, 
+input[type="text"]:active, 
+input[type="search"]:active,
 textarea:focus, 
-input:focus,
+input[type="text"]:focus,
+input[type="search"]:focus,
 button:focus,
 button:active,
 button:hover,
